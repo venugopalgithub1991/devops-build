@@ -17,9 +17,11 @@ sh'docker push tag devops-build docker-repo'
 sh'docker push docker-repo-url'
 }
 }
-stage('push to prod')
+stage('push to prod'){
 steps{
 sh'docker tag devops-build docker-repo'
 sh'docker push docker-repo-url'
+}
+}
 }
 }
