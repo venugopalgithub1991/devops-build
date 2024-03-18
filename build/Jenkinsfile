@@ -8,7 +8,7 @@ echo'Hello World'
 }
 stage('Github Webhook'){
 steps{
-checkout scmGit(branches:[[name:'*/dev]],extensions:[],userRemoteConfigs:[[credentialsid:'Github-Cred',url:'https://github.com/venugopalgithub1991/devops-build']])
+checkout scmGit(branches:[[name:'*/dev]],extensions:[],userRemoteConfigs:[[credentialsid:'1234',url:'https://github.com/venugopalgithub1991/devops-build']])
 }
 }
 stage('Push to Dev'){
