@@ -1,4 +1,4 @@
 #!/bin/bash
 docker build -t devops-build .
-docker tag devops-build <your-dockerhub-username>/devops-build:dev
-docker push <your-dockerhub-username>/devops-build:dev
+docker tag devops-build venugopal1991/repo_dev:dev
+docker tag devops-build venugopal1991/repo_prod:prod
