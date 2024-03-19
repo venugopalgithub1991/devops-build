@@ -1,27 +1,27 @@
 pipeline{
-agent any
-stages{
-stage('Hello'){
-steps{
-echo'Hello World'
-}
-}
-stage('Github Webhook'){
-steps{
-checkout scmGit(branches:[[name:'*/dev]],extensions:[],userRemoteConfigs:[[credentialsid:'1234',url:'https://github.com/venugopalgithub1991/devops-build']])
-}
-}
-stage('Push to Dev'){
-steps{
-sh'docker push tag devops-build docker-repo'
-sh'docker push docker-repo-url'
-}
-}
-stage('push to prod'){
-steps{
-sh'docker tag devops-build docker-repo'
-sh'docker push docker-repo-url'
-}
-}
-}
-}
+    agent any
+    stages{
+        stage('checkout'){
+            steps{
+               checkout scmGit(branches: [[name: '**']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/venugopalgithub1991/devops-build']])
+            }
+        }
+            stage('push to dev'){
+                steps{
+                    sh'sudo docker tag devops-buid docker-repo'
+                    sh'sudo docker push docker-repo-url'
+                }
+                    
+                }
+                stage('push to main'){
+                steps{
+                    sh'sudo docker tag devops-buid docker-repo'
+                    sh'sudo docker push docker-repo-url'
+                }
+                    
+                }
+                
+                
+            }
+        
+    }
